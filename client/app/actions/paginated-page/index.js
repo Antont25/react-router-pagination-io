@@ -15,11 +15,11 @@ export function requestPage (page) {
   }
 }
 
-export function requestPageSucceeded (page, paginatedPage) {
+export function requestPageSucceeded (page, data) {
   return {
     type: REQUEST_PAGE_SUCCEEDED,
     page,
-    paginatedPage
+    data
   }
 }
 

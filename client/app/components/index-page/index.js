@@ -5,6 +5,7 @@ import Pagination from 'react-router-pagination-io/client/app/components/common/
 export default () => (
   <section>
     <h1>Pagination (Index Page)</h1>
-    <Pagination />
+    <Pagination/>
+    <span>choose a page</span>
   </section>
 )

@@ -11,21 +11,20 @@ import Pagination from 'react-router-pagination'
 import { requestPage } from 'react-router-pagination-io/client/app/actions/paginated-page'
 
 import {
-  TOTAL_ITEMS,
-  ITEMS_PER_PAGE,
+  // TOTAL_ITEMS,
+  // ITEMS_PER_PAGE,
   SPREAD
 } from 'react-router-pagination-io/client/app/constants'
 
 import Component from './component'
 
-const mapStateToProps = ({ paginatedPage: { page } }, { match }) => {
-  const totalPages = Pagination.calculateTotalPages(TOTAL_ITEMS, ITEMS_PER_PAGE)
-
+const mapStateToProps = (store) => {
+  const totalPages = store.paginatedPage.data?.total
   return {
     totalPages,
-    pageNumber: Pagination.calculatePageNumber(page, totalPages),
+    pageNumber: Pagination.calculatePageNumber(store.paginatedPage.data?.page, totalPages),
     spread: SPREAD,
-    match
+    match: store.match,
   }
 }
 
